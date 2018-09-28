@@ -1,25 +1,39 @@
 function searchTupla(){
-	var search = document.getElementById('search').value;
-	var dataEn = 'search=' = search;
+	let ident = document.getElementById("search").value;
+    let dataEn = 'ident='+ident;
+
+    $.ajax({
+    	type: 'GET',
+    	url: 'backend.php',
+    	data: dataEn,
+    	success:function(resp){
+    		$('#res').html(resp)
+    	}
+    });
 }
 
 function insertUser(){
-	var Identificatión = document.getElementById('Identificación').value;
-	var first_name = document.getElementById('Nombre').value;
-	var last_name = document.getElementById('Apellido').value;
-	var Age = document.getElementById('Edad').value;
-	var City = document.getElementById('Ciudad').value;
+	let ident = document.getElementById("identification").value;
+	let f_name = document.getElementById("first_name").value;
+	let l_name = document.getElementById("last_name").value;
+	let age = document.getElementById("age").value;
+	let city = document.getElementById("city").value;
 
-	dataEn ={
-		Identificatión:'Identificación'
-		first_name:'Nombre'
-		last_name:'Apellido'
-		Age:'Edad'
-		City:'Ciudad'
+	let dataEn = {
+		'ident' : ident,
+		'f_name' : f_name,
+		'l_name' : l_name,
+		'age' : age,
+		'city' : city
 	};
 
 }
 
 function suscribeUser(){
-
+	let ident = document.getElementById("identification_sus").value;
+	let rev = document.getElementById("magazine").value;
+	let dataEn = {
+		'ident' : ident,
+		'rev' : rev
+	};
 }
